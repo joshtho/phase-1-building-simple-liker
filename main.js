@@ -1,11 +1,23 @@
 // Defining text characters for the empty and full hearts for you to use later.
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
-
+findLikes();
 // Your JavaScript code goes here!
-
-
-
+function findLikes() {
+const selectLike = document.querySelector(".like");
+selectLike.forEach((singularLike) => {
+  singularLike.addEventListener("click", event => {
+  mimicServerCall()
+  .then(function (response) {
+    console.log(response)
+  })
+  .catch(function (error) {
+    const nope = document.querySelector(".hidden");
+    document.remove(nope)
+  })
+})
+})
+}
 
 //------------------------------------------------------------------------------
 // Don't change the code below: this function mocks the server response
